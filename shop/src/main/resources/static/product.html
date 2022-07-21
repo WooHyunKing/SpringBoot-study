@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script
+            src="/webjars/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script
+            src="/webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script>
+ $(document).ready(function(){
+ $("button").click(function(){
+ $.ajax({
+ type: 'GET',
+ url: '/test?id=1',
+ success: function(data){
+ var obj = JSON.parse(data);
+ $('#item_nm span').text(obj.item_nm)
+ $('#item_detail span').text(obj.item_detail)
+ $('#item_reg_date span').text(obj.item_reg_date)
+ $('#item_price span').text(obj.item_price)
+ }
+ });
+ });
+ });
+ </script>
+</head>
+<body>
+<h1>상품 데이터 출력 예제</h1>
+<div id = "item_nm">상품명: <span></span></div>
+<div id = "item_detail">상품 상세설명: <span></span></div>
+<div id = "item_reg_date">상품 등록일: <span></span></div>
+<div id = "item_price">삼품가격: <span></span></div>
+<button>조회</button>
+</body>
+</html>
